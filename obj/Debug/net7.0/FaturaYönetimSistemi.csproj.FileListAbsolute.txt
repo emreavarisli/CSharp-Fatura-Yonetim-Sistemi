@@ -28,3 +28,4 @@ C:\Users\emrea\Desktop\development\CoreProject\FaturaYönetimSistemi\obj\Debug\n
 C:\Users\emrea\Desktop\development\CoreProject\FaturaYönetimSistemi\obj\Debug\net7.0\FaturaYönetimSistemi.pdb
 C:\Users\emrea\Desktop\development\CoreProject\FaturaYönetimSistemi\obj\Debug\net7.0\FaturaYönetimSistemi.genruntimeconfig.cache
 C:\Users\emrea\Desktop\development\CoreProject\FaturaYönetimSistemi\obj\Debug\net7.0\ref\FaturaYönetimSistemi.dll
+C:\Users\emrea\Desktop\development\CoreProject\FaturaYönetimSistemi\obj\Debug\net7.0\FaturaYönetimSistemi.sourcelink.json

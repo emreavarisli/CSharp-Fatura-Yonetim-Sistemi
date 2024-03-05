@@ -4,6 +4,6 @@ namespace FaturaYönetimSistemi.Controllers
 {
     public class AdminController : Controller
     {
-
+        
     }
 }
