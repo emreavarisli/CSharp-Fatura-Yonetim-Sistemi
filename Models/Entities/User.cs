@@ -11,7 +11,6 @@ namespace FaturaYönetimSistemleri.Models.Entities
     {
         [Key]
         public int UserId { get; set; }
-
         public required string FirstName { get; set; }
         public required string LastName { get; set; }
         public required string Email { get; set; }
@@ -20,9 +19,10 @@ namespace FaturaYönetimSistemleri.Models.Entities
         public required string Phone { get; set; }
         public bool ApartmentOwner { get; set; }
         public bool IsDelete { get; set; }
-        public int? ApartmentId { get; set; }
+        public int? DaireId { get; set; }
 
         public virtual required ICollection<Apartment> Apartment { get; set; }
+        public virtual required ICollection<Daire> Daire { get; set; }
 
         public required ICollection<Dues> Dues { get; set; }
         public required ICollection<Invoice> Invoice { get; set; }

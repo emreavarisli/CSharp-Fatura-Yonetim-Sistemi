@@ -1,7 +1,18 @@
+using FaturaYönetimSistemleri.Models.DB;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
+using Microsoft.Data.SqlClient;
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<Context>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("sqlconnection"));
+});
 
 var app = builder.Build();
 

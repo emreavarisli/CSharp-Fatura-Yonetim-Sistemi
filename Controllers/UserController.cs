@@ -35,13 +35,13 @@ namespace FaturaYönetimSistemleri.Controllers
         [HttpGet]
         public ActionResult UserAdd()
         {
-            List<SelectListItem> apartments = (from x in c.Apartments.Where(x => x.UserId == null).ToList()
-                                               select new SelectListItem
-                                               {
-                                                   Text = x.ApartmentBlock + " BLOK " + x.ApartmentNo + " Daire",
-                                                   Value = x.ApartmentId.ToString()
-                                               }).ToList();
-            ViewBag.VDaireler = apartments;
+            List<SelectListItem> daires = (from x in c.Daire.Where(x => x.UserId == null).ToList()
+                                           select new SelectListItem
+                                           {
+                                               Text = x.DaireId + " Daire",
+                                               Value = x.DaireId.ToString()
+                                           }).ToList();
+            ViewBag.VDaireler = daires;
 
             return View();
 
@@ -50,16 +50,6 @@ namespace FaturaYönetimSistemleri.Controllers
         [HttpPost]
         public ActionResult UserAdd(User user)
         {
-
-            if (Request.Files.Count > 0)
-            {
-                string fileName = Path.GetFileName(Request.Files[0].FileName);
-                string fileExtension = Path.GetExtension(Request.Files[0].FileName);
-                string path = "~/Image/" + fileName + fileExtension;
-                Request.Files[0].SaveAs(Server.MapPath(path));
-                user.ImageURL = "/Image/" + fileName + fileExtension;
-            }
-
             c.Users.Add(user);
             c.SaveChanges();
 
@@ -91,13 +81,13 @@ namespace FaturaYönetimSistemleri.Controllers
 
         public ActionResult UserUpdate(int id)
         {
-            List<SelectListItem> apartments = (from x in c.Apartments.ToList()
-                                               select new SelectListItem
-                                               {
-                                                   Text = x.ApartmentBlock + " BLOK " + x.ApartmentNo + " Daire",
-                                                   Value = x.ApartmentId.ToString()
-                                               }).ToList();
-            ViewBag.VDaireler = apartments;
+            List<SelectListItem> daires = (from x in c.Daire.ToList()
+                                           select new SelectListItem
+                                           {
+                                               Text = x.DaireId + " Daire",
+                                               Value = x.DaireId.ToString()
+                                           }).ToList();
+            ViewBag.VDaireler = daires;
 
             var value = c.Users.Find(id);
 
@@ -109,14 +99,6 @@ namespace FaturaYönetimSistemleri.Controllers
         [HttpPost]
         public ActionResult UserUpdated(User user)
         {
-            if (Request.Files.Count > 0)
-            {
-                string fileName = Path.GetFileName(Request.Files[0].FileName);
-                string fileExtension = Path.GetExtension(Request.Files[0].FileName);
-                string path = "~/Image/" + fileName + fileExtension;
-                Request.Files[0].SaveAs(Server.MapPath(path));
-                user.ImageURL = "/Image/" + fileName + fileExtension;
-            }
 
             var value = c.Users.Find(user.UserId);
 
@@ -130,7 +112,7 @@ namespace FaturaYönetimSistemleri.Controllers
 
             value.ApartmentOwner = user.ApartmentOwner;
             value.IsDelete = user.IsDelete;
-            value.ApartmentId = user.ApartmentId;
+            value.DaireId = user.DaireId;
 
 
             c.SaveChanges();

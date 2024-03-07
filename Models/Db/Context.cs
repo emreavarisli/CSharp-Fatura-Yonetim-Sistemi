@@ -9,11 +9,12 @@ namespace FaturaYönetimSistemleri.Models.DB
 {
     public class Context : DbContext
     {
-        public required DbSet<Admin> Admins { get; set; }
-        public required DbSet<Apartment> Apartments { get; set; }
-        public required DbSet<Dues> Dues { get; set; }
-        public required DbSet<Invoice> Invoice { get; set; }
-        public required DbSet<User> Users { get; set; }
-        public required DbSet<Message> Messages { get; set; }
+        public DbSet<Admin> Admins { get; set; }
+        public DbSet<Apartment> Apartments { get; set; }
+        public DbSet<Daire> Daire { get; set; }
+        public DbSet<Dues> Dues { get; set; }
+        public DbSet<Invoice> Invoice { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Message> Messages { get; set; }
     }
 }
